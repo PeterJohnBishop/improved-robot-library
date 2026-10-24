@@ -17,9 +17,7 @@ export class WebServer {
     this.configureRoutes();
   }
 
-  /**
-   * Express middleware for rate limiting.
-   */
+  // Express middleware for rate limiting.
   private rateLimitMiddleware = (req: Request, res: Response, next: NextFunction): void => {
     // Fallback to a generic identifier if IP is missing
     const identifier = req.ip || req.headers['x-forwarded-for']?.toString() || 'unknown';

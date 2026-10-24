@@ -5,10 +5,8 @@ export class TokenBucket {
   private tokens: number;
   private lastRefillTimestamp: number;
 
-  /**
-   * @param capacity max tokens the bucket can hold
-   * @param refillRatePerSecond How many tokens are added to the bucket every second
-   */
+  // @param capacity max tokens the bucket can hold
+  // @param refillRatePerSecond How many tokens are added to the bucket every second
   constructor(capacity: number, refillRatePerSecond: number) {
     if (capacity <= 0) throw new Error("Constraint Violation: Capacity must be > 0");
     if (refillRatePerSecond <= 0) throw new Error("Constraint Violation: Refill rate must be > 0");
@@ -21,9 +19,7 @@ export class TokenBucket {
     this.lastRefillTimestamp = Date.now();
   }
 
-  /**
-   * Refills the bucket based on the time elapsed since the last refill.
-   */
+  // Refills the bucket based on the time elapsed since the last refill.
   private refill(): void {
     const now = Date.now();
     const elapsedTime = now - this.lastRefillTimestamp;
@@ -37,11 +33,9 @@ export class TokenBucket {
     }
   }
 
-  /**
-   * Attempts to consume tokens for a request.
-   * @param cost How many tokens this request requires (defaults to 1).
-   * @returns true if the request is allowed, false if rate limited.
-   */
+  // Attempts to consume tokens for a request.
+  // @param cost How many tokens this request requires (defaults to 1).
+  // @returns true if the request is allowed, false if rate limited.
   public consume(cost: number = 1): boolean {
     if (cost <= 0) throw new Error("Constraint Violation: Cost must be > 0");
     if (cost > this.capacity) throw new Error("Constraint Violation: Cost cannot exceed bucket capacity");
