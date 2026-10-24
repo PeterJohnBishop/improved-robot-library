@@ -1,0 +1,47 @@
+# Local SSH Keys and Secrets (Prevents accidental commits)
+.ssh/
+*.pem
+*.key
+id_*
+known_hosts
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries and profiles
+*.test
+*.out
+cover.out
+coverage.html
+
+# Output of the go build command
+freeform-tui
+bin/
+dist/
+
+# Architecture-specific outputs
+main
+
+# Dependency directories (only needed if using vendoring)
+# vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Environment variables & local secrets
+.env
+*.env.*
+!.env.example
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
